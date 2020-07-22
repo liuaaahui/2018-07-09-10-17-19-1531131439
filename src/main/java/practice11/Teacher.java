@@ -5,11 +5,14 @@ import practice11.Student;
 
 import java.util.List;
 
-public class Teacher extends Person{
+public class Teacher extends Person implements JoinListener{
     private List<Klass> classes;
     public Teacher(int id, String name, int age, List<Klass> classes) {
         super(id, name, age);
         this.classes = classes;
+        this.classes.forEach(klass -> {
+            klass.registerListener(this);
+        });
     }
 
     public Teacher(int id, String name, int age) {
@@ -46,5 +49,11 @@ public class Teacher extends Person{
             }
         }
         return flag;
+    }
+
+    @Override
+    public void update(Student student) {
+        System.out.println(String.format("I am %s. I know %s has joined  Class %s.\n",
+                this.getName(), student.getName(), student.getKlass().getNumber()));
     }
 }
