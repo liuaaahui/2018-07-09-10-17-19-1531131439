@@ -10,6 +10,9 @@ public class Teacher extends Person implements JoinListener{
     public Teacher(int id, String name, int age, List<Klass> classes) {
         super(id, name, age);
         this.classes = classes;
+//        for( Klass klass:this.classes){
+//            klass.registerListener(this);
+//        }
         this.classes.forEach(klass -> {
             klass.registerListener(this);
         });
@@ -53,7 +56,14 @@ public class Teacher extends Person implements JoinListener{
 
     @Override
     public void update(Student student) {
-        System.out.println(String.format("I am %s. I know %s has joined  Class %s.\n",
+//        System.out.print("I am " + this.getName() + ". I know " + student.getName() + " has joined Class " + student.getKlass().getNumber() + ".\n");
+        System.out.print(String.format("I am %s. I know %s has joined Class %s.\n",
+                this.getName(), student.getName(), student.getKlass().getNumber()));
+    }
+
+    @Override
+    public void updateLeader(Student student) {
+        System.out.print(String.format("I am %s. I know %s become Leader of Class %s.\n",
                 this.getName(), student.getName(), student.getKlass().getNumber()));
     }
 }

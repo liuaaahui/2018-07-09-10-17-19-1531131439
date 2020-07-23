@@ -40,13 +40,19 @@ public class Klass {
             return;
         }
         this.setLeader(student);
+        for(JoinListener listener:this.joinListeners){
+            listener.updateLeader(student);
+        }
     }
 
     public void appendMember(Student student){
         student.setKlass(this);
-        this.joinListeners.forEach(listener -> {
+        for(JoinListener listener:this.joinListeners){
             listener.update(student);
-        });
+        }
+//        this.joinListeners.forEach(listener -> {
+//            listener.update(student);
+//        });
     }
 
     public boolean isIn(Klass klass){
