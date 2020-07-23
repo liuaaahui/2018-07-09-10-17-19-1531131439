@@ -35,7 +35,7 @@ public class Person {
         this.age = age;
     }
 
-    public String introduce(){
+    public String introduce() {
         return "My name is " + this.name + ". I am " + this.age + " years old.";
     }
 
@@ -48,8 +48,6 @@ public class Person {
         if (getClass() != obj.getClass())
             return false;
         Person other = (Person) obj;
-        if (id != other.id)
-            return false;
-        return true;
+        return id == other.id;
     }
 }

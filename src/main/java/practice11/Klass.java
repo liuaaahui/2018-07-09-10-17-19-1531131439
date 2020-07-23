@@ -1,14 +1,12 @@
 package practice11;
 
-import practice11.Student;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Klass {
-    private int number;
+    private final int number;
     private Student leader;
-    private List<JoinListener> joinListeners;
+    private final List<JoinListener> joinListeners;
     public Klass(int number) {
         this.number = number;
         joinListeners = new ArrayList<>();
@@ -16,10 +14,6 @@ public class Klass {
 
     public int getNumber() {
         return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public Student getLeader() {
@@ -50,14 +44,10 @@ public class Klass {
         for(JoinListener listener:this.joinListeners){
             listener.update(student);
         }
-//        this.joinListeners.forEach(listener -> {
-//            listener.update(student);
-//        });
     }
 
     public boolean isIn(Klass klass){
-        if(klass.getNumber() == this.getNumber()) return true;
-        return false;
+        return klass.getNumber() == this.getNumber();
     }
 
     public void registerListener(JoinListener joinListener) {

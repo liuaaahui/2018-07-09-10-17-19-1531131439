@@ -1,20 +1,15 @@
 package practice09;
 
-import practice09.Student;
-
 public class Klass {
-    private int number;
+    private final int number;
     private Student leader;
+
     public Klass(int number) {
         this.number = number;
     }
 
     public int getNumber() {
         return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public Student getLeader() {
@@ -25,19 +20,19 @@ public class Klass {
         this.leader = leader;
     }
 
-    public String getDisplayName(){
+    public String getDisplayName() {
         return "Class " + this.number;
     }
 
-    public void assignLeader(Student student){
-        if(student.getKlass() != this){
+    public void assignLeader(Student student) {
+        if (student.getKlass() != this) {
             System.out.print("It is not one of us.\n");
             return;
         }
         this.setLeader(student);
     }
 
-    public void appendMember(Student student){
+    public void appendMember(Student student) {
         student.setKlass(this);
     }
 }

@@ -15,7 +15,7 @@ public class Klass {
         this.number = number;
     }
 
-    public String getDisplayName(){
+    public String getDisplayName() {
         return "Class " + this.number;
     }
 }

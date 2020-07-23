@@ -1,6 +1,6 @@
 package practice02;
 
-public class Student extends Person{
+public class Student extends Person {
     private int Klass;
 
     public Student(String name, int age, int Klass) {
@@ -16,7 +16,7 @@ public class Student extends Person{
         Klass = klass;
     }
 
-    public String introduce(){
+    public String introduce() {
         return "I am a Student. I am at Class " + this.Klass + ".";
     }
 }

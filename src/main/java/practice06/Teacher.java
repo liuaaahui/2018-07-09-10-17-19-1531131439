@@ -1,6 +1,6 @@
 package practice06;
 
-public class Teacher extends Person{
+public class Teacher extends Person {
     private int klass;
 
     public Teacher(String name, int age, int klass) {
@@ -20,8 +20,8 @@ public class Teacher extends Person{
         this.klass = klass;
     }
 
-    public String introduce(){
-        if(this.klass == 0) return super.introduce() + " I am a Teacher. I teach No Class.";
+    public String introduce() {
+        if (this.klass == 0) return super.introduce() + " I am a Teacher. I teach No Class.";
         return super.introduce() + " I am a Teacher. I teach Class " + this.klass + ".";
     }
 }
