@@ -1,5 +1,7 @@
 package practice09;
 
+import java.util.Objects;
+
 public class Person {
     private int id;
     private String name;
@@ -50,5 +52,10 @@ public class Person {
             return false;
         Person other = (Person) obj;
         return id == other.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
