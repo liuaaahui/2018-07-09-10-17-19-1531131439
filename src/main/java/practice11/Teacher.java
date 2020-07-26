@@ -25,14 +25,19 @@ public class Teacher extends Person implements JoinListener {
 
     public String introduce() {
         if (this.classes == null) return super.introduce() + " I am a Teacher. I teach No Class.";
-        StringBuffer allClasses = new StringBuffer();
+        StringBuffer allClasses;
+        allClasses = new StringBuffer();
         classes.forEach(classesItem -> allClasses.append(classesItem.getNumber()).append(", "));
-        return super.introduce() + " I am a Teacher. I teach Class " + allClasses.substring(0, allClasses.length() - 2) + ".";
+        return super.introduce() + String.format(" I am a Teacher. I teach Class %s.",
+                allClasses.substring(0, allClasses.length() - 2));
     }
 
     public String introduceWith(Student student) {
-        if (isTeaching(student)) return super.introduce() + " I am a Teacher. I teach " + student.getName() + ".";
-        return super.introduce() + " I am a Teacher. I don't teach " + student.getName() + ".";
+        if (isTeaching(student))
+            return super.introduce() + String.format(" I am a Teacher. I teach %s.",
+                    student.getName());
+        return super.introduce() + String.format(" I am a Teacher. I don't teach %s.",
+                student.getName());
     }
 
     public boolean isTeaching(Student student) {

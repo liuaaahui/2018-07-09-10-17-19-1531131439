@@ -17,13 +17,17 @@ public class Teacher extends Person {
     }
 
     public String introduce() {
-        if (this.klass == null) return super.introduce() + " I am a Teacher. I teach No Class.";
-        return super.introduce() + " I am a Teacher. I teach Class " + this.klass.getNumber() + ".";
+        if (this.klass == null)
+            return super.introduce() + " I am a Teacher. I teach No Class.";
+        return super.introduce() + String.format(" I am a Teacher. I teach Class %s.",
+                this.klass.getNumber());
     }
 
     public String introduceWith(Student student) {
         if (student.getKlass().getNumber() == this.getKlass().getNumber())
-            return super.introduce() + " I am a Teacher. I teach " + student.getName() + ".";
-        return super.introduce() + " I am a Teacher. I don't teach " + student.getName() + ".";
+            return super.introduce() + String.format(" I am a Teacher. I teach %s.",
+                    student.getName());
+        return super.introduce() + String.format(" I am a Teacher. I don't teach %s.",
+                student.getName());
     }
 }

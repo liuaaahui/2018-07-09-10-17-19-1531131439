@@ -21,7 +21,9 @@ public class Teacher extends Person {
     }
 
     public String introduce() {
-        if (this.klass == 0) return super.introduce() + " I am a Teacher. I teach No Class.";
-        return super.introduce() + " I am a Teacher. I teach Class " + this.klass + ".";
+        if (this.klass == 0)
+            return super.introduce() + " I am a Teacher. I teach No Class.";
+        return super.introduce() + String.format(" I am a Teacher. I teach Class %s.",
+                this.klass);
     }
 }
